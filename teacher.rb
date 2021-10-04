@@ -1,4 +1,4 @@
-require_relative 'main'
+require_relative 'person'
 
 class Teacher < Person
   def initialize(params)
