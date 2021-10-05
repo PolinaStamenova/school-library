@@ -28,4 +28,3 @@ class Person
 end
 
 # p Person.new(name: 'polinastamenova', corrector: Corrector.new)
-
