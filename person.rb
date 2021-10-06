@@ -10,6 +10,7 @@ class Person
     @name = validate_name params[:name] || 'Unknown'
     @age = params[:age]
     @parent_permission = params.fetch(:parent_permission, true)
+    @rentals = []
   end
 
   def can_use_services?
