@@ -1,7 +1,6 @@
 require_relative 'person'
 
 class Student < Person
-  #belongs_to : classroom
   attr_reader :classroom
 
   def initialize(params)
@@ -18,6 +17,3 @@ class Student < Person
     "¯\(ツ)/¯"
   end
 end
-
-# p student = Student.new(name: "polina", corrector: Corrector.new)
-# p student.classroom
