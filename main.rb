@@ -3,14 +3,17 @@ require_relative "student"
 require_relative "teacher"
 require_relative "corrector"
 require_relative "book"
+require_relative "rental"
+# require "pry"
 
 
 class App
+  attr_accessor :people, :books
   def initialize
     # @classroom = Classroom.new('Microverse 2.0')
     @people = []
     @books = []
-    # @rentals = []
+    @rentals = []
   end
 
   def run
@@ -31,9 +34,9 @@ class App
     when "4"
       create_book
     when "5"
-      puts "Five"
+      create_rental
     when "6"
-      puts "Six"
+      list_rental_by_person_id
     else
       puts "Exit"
     end
@@ -109,6 +112,44 @@ class App
     book = Book.new(title: title, author: author)
     @books << book
     puts "Book created successfully"
+    sleep 1
+    options
+  end
+
+  def create_rental
+    puts "Select a book from the following list by number"
+    @books.each_with_index {|book, idx| puts "#{idx}) Title: #{book.title}, Author: #{book.author}"}
+
+    book_idx = gets.chomp.to_i
+
+    puts "Select a person from the following list by number (not id)"
+    @people.each_with_index {|person, idx| puts "#{idx}) [#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"}
+
+    person_idx = gets.chomp.to_i
+
+    print "Date: "
+    date = gets.chomp
+
+    rental = Rental.new(date: date, book: @books[book_idx], person: @people[person_idx])
+
+    @rentals << rental
+    puts "Rental created successfully"
+    sleep 1
+    options
+  end
+
+  def list_rental_by_person_id
+    print "ID of person: "
+    id = gets.chomp.to_i
+
+    puts "Rentals:"
+    puts
+    @rentals.each do |rental|
+        if rental.person.id == id
+        puts "Date: #{rental.date}, Book '#{rental.book.title}' by #{rental.book.author}"
+        end
+      end
+
     sleep 1
     options
   end
