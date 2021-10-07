@@ -4,13 +4,11 @@ require_relative "teacher"
 require_relative "corrector"
 require_relative "book"
 require_relative "rental"
-# require "pry"
 
 
 class App
   attr_accessor :people, :books
   def initialize
-    # @classroom = Classroom.new('Microverse 2.0')
     @people = []
     @books = []
     @rentals = []
