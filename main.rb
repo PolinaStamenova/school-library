@@ -2,13 +2,14 @@ require_relative "person"
 require_relative "student"
 require_relative "teacher"
 require_relative "corrector"
+require_relative "book"
 
 
 class App
   def initialize
     # @classroom = Classroom.new('Microverse 2.0')
     @people = []
-    # @books = []
+    @books = []
     # @rentals = []
   end
 
@@ -19,15 +20,15 @@ class App
   end
 
   def case_options(option)
-      case option
+    case option
     when "1"
-      puts "One"
+      option_one
     when "2"
       puts "Two"
     when "3"
       option_three
     when "4"
-      puts "four"
+      option_four
     when "5"
       puts "Five"
     when "6"
@@ -37,11 +38,18 @@ class App
     end
   end
 
+  def option_one
+    @books.map {|book| puts "Title: #{book.title}, Author: #{book.author}"}
+    puts options
+  end
+
   def option_three
     print "Do you want to create a student (1) or a teacher (2)? [Input the number]: "
     choose_person = gets.chomp
+
     print "Age: "
     age = gets.chomp.to_i
+
     print "Name: "
     name = gets.chomp
     if choose_person == "1"
@@ -66,6 +74,19 @@ class App
     puts options
   end
 
+  def option_four
+    print "Title: "
+    title = gets.chomp
+
+    print "Author: "
+    author = gets.chomp
+    book = Book.new(title: title, author: author)
+    @books << book
+    # p @books
+    puts "Book created successfully"
+    puts options
+  end
+
   def options
     puts
     puts "Please choose an option by enterin a number:"
@@ -77,13 +98,8 @@ class App
     puts "6 - List all rentals for a given preson id"
     puts "7 - Exit"
     option = gets.chomp
-    case_options(option)
+    case_options option
   end
 end
 
-def main
-  app = App.new()
-  app.run
-end
-
-main()
+App.new.run
