@@ -47,7 +47,13 @@ class App
     options
   end
 
+  def list_people
+    puts "There are no people" if @people.empty?
 
+    @people.each {|person| puts "[#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"}
+    sleep 1
+    options
+  end
 
   def parent_permission?
     answer = ""
