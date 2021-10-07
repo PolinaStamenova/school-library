@@ -15,20 +15,21 @@ class App
 
   def run
     puts "Welcome to School Library App!"
-    puts options
+    sleep 1
+    options
 
   end
 
   def case_options(option)
     case option
     when "1"
-      option_one
+      list_books
     when "2"
-      puts "Two"
+      list_people
     when "3"
-      option_three
+      create_person
     when "4"
-      option_four
+      create_book
     when "5"
       puts "Five"
     when "6"
@@ -38,43 +39,62 @@ class App
     end
   end
 
-  def option_one
-    @books.map {|book| puts "Title: #{book.title}, Author: #{book.author}"}
-    puts options
+  def list_books
+    puts "There are no books" if @books.empty?
+
+    @books.each {|book| puts "Title: #{book.title}, Author: #{book.author}"}
+    sleep 1
+    options
   end
 
-  def option_three
-    print "Do you want to create a student (1) or a teacher (2)? [Input the number]: "
-    choose_person = gets.chomp
+
+
+  def parent_permission?
+    answer = ""
+    until answer == "y" || answer == "n"
+      print "Has parent permission? [Y/N]: "
+      answer = gets.chomp.downcase
+    end
+    answer == "y" ? true : false
+  end
+
+  def choose_person
+    answer = ""
+    until answer == "1" || answer == "2"
+      print "Do you want to create a student (1) or a teacher (2)? [Input the number]: "
+      answer = gets.chomp.downcase
+    end
+    answer
+  end
+
+  def specialization
+    answer = ""
+    while answer&.empty?
+      print "Specialization: "
+      answer = gets.chomp
+    end
+  end
+
+  def create_person
+    option = choose_person
 
     print "Age: "
     age = gets.chomp.to_i
 
     print "Name: "
     name = gets.chomp
-    if choose_person == "1"
-      print "Has parent permission? [Y/N]: "
-      parent_permission = gets.chomp.downcase
-      if parent_permission == "y"
-        parent_permission = true
-      elsif parent_permission == "n"
-        parent_permission = false
-      end
-      student = Student.new(age: age, name: name, parent_permission: parent_permission, corrector: Corrector.new)
-      @people << student
-      # p @people
-    elsif choose_person == "2"
-      print "Specialization: "
-      specialization = gets.chomp
-      teacher = Teacher.new(age: age, name: name, specialization: specialization, corrector: Corrector.new)
-      @people << teacher
-      # p @people
-    end
+    person =  if option == "1"
+                Student.new(age: age, name: name, parent_permission: parent_permission?, corrector: Corrector.new)
+              elsif option == "2"
+                Teacher.new(age: age, name: name, specialization: specialization, corrector: Corrector.new)
+              end
+    @people << person
     puts "Person created successfully"
-    puts options
+    sleep 1
+    options
   end
 
-  def option_four
+  def create_book
     print "Title: "
     title = gets.chomp
 
@@ -82,9 +102,9 @@ class App
     author = gets.chomp
     book = Book.new(title: title, author: author)
     @books << book
-    # p @books
     puts "Book created successfully"
-    puts options
+    sleep 1
+    options
   end
 
   def options
