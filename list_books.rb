@@ -11,6 +11,5 @@ class BookList
     puts 'There are no books' if @books.empty?
 
     @books.each { |book| puts "Title: #{book.title}, Author: #{book.author}" }
-
   end
 end
