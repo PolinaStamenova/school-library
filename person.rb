@@ -4,6 +4,7 @@ class Person
   attr_reader :id, :corrector, :rentals
   attr_accessor :name, :age
 
+
   def initialize(params)
     @id = Random.rand(1..1000)
     @corrector = params[:corrector]
