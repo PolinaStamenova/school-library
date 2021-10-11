@@ -2,7 +2,7 @@ require_relative 'corrector'
 require_relative 'options'
 
 class CreatePerson
-  include 'Options'
+  include Options
   attr_accessor :people
 
   def initialize(params)

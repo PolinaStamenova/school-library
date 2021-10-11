@@ -1,7 +1,7 @@
 require_relative 'options'
 
 class CreateBook
-  include 'Options'
+  include Options
   attr_accessor :books
 
   def initialize(params)
