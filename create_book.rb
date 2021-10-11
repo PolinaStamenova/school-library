@@ -1,5 +1,6 @@
 class CreateBook
   attr_accessor :books
+
   def initialize (params)
     @books=params
   end
