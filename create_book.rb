@@ -1,4 +1,7 @@
+require_relative 'options'
+
 class CreateBook
+  include 'Options'
   attr_accessor :books
 
   def initialize(params)
@@ -6,11 +9,7 @@ class CreateBook
   end
 
   def create_book
-    print 'Title: '
-    title = gets.chomp
-
-    print 'Author: '
-    author = gets.chomp
+    title, author = create_book_screen
     book = Book.new(title: title, author: author)
     @books << book
     puts 'Book created successfully'

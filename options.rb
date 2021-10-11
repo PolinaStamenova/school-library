@@ -1,6 +1,6 @@
 module Options
   def options
-    puts
+    puts "Welcome to School Library App!\n\n"
     puts 'Please choose an option by enterin a number:'
     puts '1 - List all books'
     puts '2 - List all people'
@@ -9,5 +9,14 @@ module Options
     puts '5 - Create a rental'
     puts '6 - List all rentals for a given preson id'
     puts '7 - Exit'
+  end
+
+  def create_book_screen
+    print 'Title: '
+    title = gets.chomp
+
+    print 'Author: '
+    author = gets.chomp
+    [title, author]
   end
 end
