@@ -2,6 +2,7 @@ require_relative 'corrector'
 require_relative 'options'
 
 class CreatePerson
+  include 'Options'
   attr_accessor :people
 
   def initialize(params)
@@ -36,12 +37,7 @@ class CreatePerson
 
   def create_person
     option = choose_person
-
-    print 'Age: '
-    age = gets.chomp.to_i
-
-    print 'Name: '
-    name = gets.chomp
+    age, name = create_person_screen
     person = case option
              when '1'
                Student.new(age: age, name: name, parent_permission: parent_permission?, corrector: Corrector.new)

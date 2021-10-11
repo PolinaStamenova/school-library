@@ -19,4 +19,13 @@ module Options
     author = gets.chomp
     [title, author]
   end
+
+  def create_person_screen
+    print 'Age: '
+    age = gets.chomp.to_i
+
+    print 'Name: '
+    name = gets.chomp
+    [age, name]
+  end
 end
