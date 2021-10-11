@@ -11,7 +11,7 @@ require_relative 'list_people'
 require_relative 'list_books'
 require_relative 'create_rental'
 require_relative 'list_rentals'
-require_relative "storage"
+require_relative 'storage'
 
 class App
   include Options

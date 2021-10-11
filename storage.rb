@@ -3,6 +3,7 @@ require_relative 'book'
 require_relative 'student'
 require_relative 'teacher'
 require_relative 'rental'
+require_relative 'corrector'
 
 class Storage
   def stringify(book, people, rentals)
@@ -48,14 +49,17 @@ class Storage
     JSON.parse(File.read(file_name)).map do |rental|
       person = people.detect { |p| p.id.eql?(rental['person']['id']) }
       book = books.detect { |b| b.title.eql?(rental['book']['title']) }
-      Rental.new(rental['date'], person, book)
+      Rental.new({ date: rental['date'], person: person, book: book })
     end
   end
 
   private
 
   def create_teacher(people)
-    teacher = Teacher.new(age: people['age'], name: people['name'], specialization: people['specialization'])
+    teacher = Teacher.new(age: people['age'],
+                          name: people['name'],
+                          specialization: people['specialization'],
+                          corrector: Corrector.new)
     teacher.id = people['id']
     teacher
   end
@@ -65,9 +69,12 @@ class Storage
     name = people['name']
     classroom = people['classroom']
     permission = people['parent_permission']
-    student = Student.new(age: age, name: name, classroom: classroom, parent_permission: permission)
+    student = Student.new(age: age,
+                          name: name,
+                          classroom: classroom,
+                          parent_permission: permission,
+                          corrector: Corrector.new)
     student.id = people['id']
     student
   end
 end
-
