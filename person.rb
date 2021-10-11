@@ -1,8 +1,8 @@
 require_relative 'corrector'
 
 class Person
-  attr_reader :id, :corrector
-  attr_accessor :name, :age, :rentals
+  attr_reader :id, :corrector, :rentals
+  attr_accessor :name, :age
 
   def initialize(params)
     @id = Random.rand(1..1000)
