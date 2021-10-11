@@ -12,6 +12,6 @@ class CreateBook
     title, author = create_book_screen
     book = Book.new(title: title, author: author)
     @books << book
-    puts 'Book created successfully'
+    console 'Book created successfully'
   end
 end

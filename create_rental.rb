@@ -1,6 +1,8 @@
 require_relative 'rental'
+require_relative 'options'
 
 class CreateRental
+  include Options
   attr_accessor :rentals
 
   def initialize(params)
@@ -28,6 +30,6 @@ class CreateRental
     rental = Rental.new(date: date, book: @books[book_idx], person: @people[person_idx])
 
     @rentals << rental
-    puts 'Rental created successfully'
+    console 'Rental created successfully'
   end
 end

@@ -45,6 +45,6 @@ class CreatePerson
                Teacher.new(age: age, name: name, specialization: specialization, corrector: Corrector.new)
              end
     @people << person
-    puts 'Person created successfully'
+    console 'Person created successfully'
   end
 end

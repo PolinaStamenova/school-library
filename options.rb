@@ -28,4 +28,8 @@ module Options
     name = gets.chomp
     [age, name]
   end
+
+  def console(text)
+    puts text
+  end
 end
