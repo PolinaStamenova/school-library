@@ -2,7 +2,7 @@ class RentalsList
   attr_reader :rentals
 
   def initialize(param)
-    @rentals=param
+    @rentals = param
   end
 
   def list_rental_by_person_id

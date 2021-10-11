@@ -1,12 +1,12 @@
-require_relative "rental"
+require_relative 'rental'
 
 class CreateRental
   attr_accessor :rentals
 
   def initialize(params)
-    @rentals=params[:rentals]
-    @books=params[:books]
-    @people=params[:people]
+    @rentals = params[:rentals]
+    @books = params[:books]
+    @people = params[:people]
   end
 
   def create_rental

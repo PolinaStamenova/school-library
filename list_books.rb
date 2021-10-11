@@ -1,10 +1,8 @@
-
-
 class BookList
   attr_accessor :books
 
   def initialize(params)
-    @books=params
+    @books = params
   end
 
   def list_books

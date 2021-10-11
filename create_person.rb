@@ -1,11 +1,11 @@
-require_relative "corrector"
-require_relative "options"
+require_relative 'corrector'
+require_relative 'options'
 
 class CreatePerson
   attr_accessor :people
 
   def initialize(params)
-    @people=params
+    @people = params
   end
 
   def parent_permission?
