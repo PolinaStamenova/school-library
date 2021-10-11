@@ -29,6 +29,5 @@ class CreateRental
 
     @rentals << rental
     puts 'Rental created successfully'
-
   end
 end
