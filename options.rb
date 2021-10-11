@@ -9,7 +9,5 @@ module Options
     puts '5 - Create a rental'
     puts '6 - List all rentals for a given preson id'
     puts '7 - Exit'
-    # option = gets.chomp
-    # option
   end
 end

@@ -13,7 +13,6 @@ require_relative "create_rental"
 require_relative "list_rentals"
 
 class App
-
   include Options
 
   attr_accessor :people, :books
@@ -28,7 +27,6 @@ class App
     @people_list = PeopleList.new(@people)
     @rental_creator = CreateRental.new({rentals: @rentals, people: @people, books: @books})
     @rentals_list = RentalsList.new(@rentals)
-
   end
 
   def run
@@ -44,7 +42,6 @@ class App
         case_options(option)
       end
     end
-
   end
 
   def case_options(option)
@@ -65,8 +62,6 @@ class App
       puts 'Exit'
     end
   end
-
-
 end
 
 App.new.run
