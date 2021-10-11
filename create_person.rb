@@ -24,6 +24,7 @@ class CreatePerson
       print 'Specialization: '
       answer = gets.chomp
     end
+    answer
   end
 
   def choose_person
@@ -40,7 +41,11 @@ class CreatePerson
     age, name = create_person_screen
     person = case option
              when '1'
-               Student.new(age: age, name: name, parent_permission: parent_permission?, corrector: Corrector.new)
+               Student.new(age: age,
+                           classroom: 'classroom',
+                           name: name,
+                           parent_permission: parent_permission?,
+                           corrector: Corrector.new)
              when '2'
                Teacher.new(age: age, name: name, specialization: specialization, corrector: Corrector.new)
              end

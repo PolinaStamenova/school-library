@@ -11,6 +11,7 @@ require_relative 'list_people'
 require_relative 'list_books'
 require_relative 'create_rental'
 require_relative 'list_rentals'
+require_relative 'storage'
 
 class App
   include Options
@@ -18,9 +19,10 @@ class App
   attr_accessor :people, :books
 
   def initialize
-    @people = []
-    @books = []
-    @rentals = []
+    @storage = Storage.new
+    @books = @storage.parse[:books]
+    @people = @storage.parse[:people]
+    @rentals = @storage.parse[:rentals]
     @book_creator = CreateBook.new(@books)
     @people_creator = CreatePerson.new(@people)
     @book_list = BookList.new(@books)
@@ -35,6 +37,7 @@ class App
       options
       option = gets.chomp
       if option.eql?('7')
+        @storage.stringify(@books, @people, @rentals)
         is_running = false
       else
         case_options(option)
