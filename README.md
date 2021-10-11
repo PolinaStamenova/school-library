@@ -1,6 +1,6 @@
 # Create your own Enumerable:
 
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 ## Description:
 
@@ -16,13 +16,29 @@ To get a local copy up and running follow these simple example steps.
 
 ## Instructions
 
+```
 $ cd <folder>
+```
 
+```
 $ git clone git@github.com:PolinaStamenova/school-library.git
+```
+
+```
+$ cd school-library
+```
+
+```
+$ bundle install
+```
 
 ### Usage
 
-ruby person.rb
+> Uncomment line 30
+
+```
+$ ruby person.rb
+```
 
 ## Authors
 
@@ -44,3 +60,7 @@ Give a ⭐️ if you like this project!
 ## Acknowledgments
 
 - Microverse
+
+```
+
+```
