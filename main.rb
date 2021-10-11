@@ -18,8 +18,9 @@ class App
   attr_accessor :people, :books
 
   def initialize
-    @people = []
+    @storage = Storage.new
     @books = []
+    @people = []
     @rentals = []
     @book_creator = CreateBook.new(@books)
     @people_creator = CreatePerson.new(@people)

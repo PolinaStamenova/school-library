@@ -4,7 +4,7 @@ class Student < Person
   attr_reader :classroom
 
   def initialize(params)
-    super
+    super(params)
     @classroom = params[:classroom]
   end
 
