@@ -28,16 +28,20 @@ $ git clone git@github.com:PolinaStamenova/school-library.git
 $ cd school-library
 ```
 
+## Install
 ```
 $ bundle install
 ```
 
+## Test
+```
+  rspec spec
+```
+
 ### Usage
 
-> Uncomment line 30
-
 ```
-$ ruby person.rb
+$ ruby main.rb
 ```
 
 ## Authors

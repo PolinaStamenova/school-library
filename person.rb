@@ -1,13 +1,13 @@
 require_relative 'corrector'
 
 class Person
-  attr_reader :corrector, :rentals
+  attr_reader :corrector, :rentals, :parent_permission
   attr_accessor :name, :age, :id
 
   def initialize(params)
+    @corrector = Corrector.new
     @id = Random.rand(1..1000)
-    @corrector = params[:corrector]
-    @name = validate_name params[:name] || 'Unknown'
+    @name = params[:name] || 'Unknown'
     @age = params[:age]
     @parent_permission = params.fetch(:parent_permission, true)
     @rentals = []
@@ -24,7 +24,7 @@ class Person
   end
 
   def validate_name(name)
-    corrector.correct_name name
+    @name = @corrector.correct_name name
   end
 end
 
