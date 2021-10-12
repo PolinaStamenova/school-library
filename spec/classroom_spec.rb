@@ -1,21 +1,21 @@
-require_relative "spec_helper"
+require_relative 'spec_helper'
 
 describe Classroom do
   before :each do
-    @classroom = Classroom.new({label: 'Chemie'})
-    @student = Student.new({age: 17, classroom: @classroom})
+    @classroom = Classroom.new({ label: 'Chemie' })
+    @student = Student.new({ age: 17, classroom: @classroom })
     @classroom.add_student @student
   end
 
-  describe "#new" do
-    it "Should return an instance of Classroom" do
+  describe '#new' do
+    it 'Should return an instance of Classroom' do
       expect(@classroom).to be_an_instance_of Classroom
     end
   end
 
-  describe "classroom label" do
-    it "Should return label of the classroom equal to Chemie" do
-      expect(@classroom.label).to eq "Chemie"
+  describe 'classroom label' do
+    it 'Should return label of the classroom equal to Chemie' do
+      expect(@classroom.label).to eq 'Chemie'
     end
   end
 
@@ -30,5 +30,4 @@ describe Classroom do
       expect(@student.classroom).to eq @classroom
     end
   end
-
 end
