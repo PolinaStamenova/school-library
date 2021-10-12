@@ -4,7 +4,7 @@ describe Teacher do
   describe "#new" do
     let(:teacher) { Teacher.new({ specialization: "Maths" }) }
 
-    context "Teacher instaned" do
+    context "Teacher instance" do
       it "should return an instance of Teacher" do
         expect(teacher).to be_an_instance_of Teacher
       end

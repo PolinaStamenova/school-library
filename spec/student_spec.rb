@@ -5,7 +5,7 @@ describe Student do
     let(:classroom) { Classroom.new({label: 'Chemie'}) }
     let(:student) { Student.new({age: 15, classroom: classroom.label}) }
 
-    context "Student instaned" do
+    context "Student instance" do
       it "should return an instance of Student" do
         expect(student).to be_an_instance_of Student
       end
