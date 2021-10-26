@@ -1,4 +1,4 @@
-# Create your own Enumerable:
+# School-library:
 
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
